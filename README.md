@@ -83,8 +83,7 @@ Val   set : 10%  →   47,959 pairs
 ### Dataset Links
 
 - **Flickr8k** → [Kaggle](https://www.kaggle.com/datasets/adityajn105/flickr8k)
-- **COCO 2014** → [COCO Dataset](https://cocodataset.org/#download) (train2014 images + annotations)
-- **COCO 2017** → [COCO Dataset](https://cocodataset.org/#download) (val2017 images + annotations)
+- **COCO** → [COCO Dataset](https://www.kaggle.com/datasets/nikhil7280/coco-image-caption?select=annotations_trainval2014)
 
 ---
 
@@ -129,16 +128,14 @@ git clone https://github.com/Sajid2924/Image-Captioning-Model.git
 
 ### 2. Create and activate virtual environment
 
-```bash
-python3 -m venv venv
-```
-
 **For macOS and Linux:**
 ```bash
+python3 -m venv venv
 source venv/bin/activate
 ```
 **For Windows(Command Prompt)**
 ```bash
+python -m venv venv
 venv\Scripts\activate.bat
 ```
 
