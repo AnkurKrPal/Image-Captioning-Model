@@ -71,20 +71,21 @@ Model/
 
 ### Split Strategy
 
-All 479,582 pairs are combined, shuffled with a fixed `seed=42` for reproducibility, and split:
+All 479,582 pairs from all three sources (Flickr8k, COCO 2014, and COCO 2017) are **combined together**, shuffled with a fixed `seed=42` for reproducibility, and then split randomly:
 
 ```
 Train set : 90%  →  431,623 pairs
 Val   set : 10%  →   47,959 pairs
 ```
 
-The fixed seed ensures the train/val split is **identical every run** and across all machines.
+> **Note:** COCO 2014 and COCO 2017 are **not** used exclusively for training and validation respectively. All three datasets are pooled and split randomly, so images from every source appear in both the train and val sets. The fixed seed ensures the train/val split is **identical every run** and across all machines.
 
 ### Dataset Links
 
 - **Flickr8k** → [Kaggle](https://www.kaggle.com/datasets/adityajn105/flickr8k)
 - **COCO 2014** → [COCO Dataset](https://cocodataset.org/#download) (train2014 images + annotations)
 - **COCO 2017** → [COCO Dataset](https://cocodataset.org/#download) (val2017 images + annotations)
+
 ---
 
 ## 📊 Evaluation Results
@@ -174,6 +175,8 @@ python predict.py --image path/to/your/image.jpg
 # Custom checkpoint
 python predict.py --image photo.jpg --checkpoint checkpoints/best_model.pt
 ```
+
+> **Using a pre-trained checkpoint?** Download one of our saved checkpoints directly from Google Drive: **[https://drive.google.com/drive/folders/1wteO5OD4w-F2TGNZE6-NCDO_7qQEraPK?usp=drive_link]**. Place the downloaded `.pt` file in the `checkpoints/` folder and pass its path via the `--checkpoint` argument as shown above.
 
 ### 7. Evaluate
 
