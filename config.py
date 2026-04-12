@@ -39,7 +39,7 @@ class Config:
     weight_decay = 1e-3
     warmup_steps = 1000
     grad_clip = 1.0  # gradient clipping value
-    mixed_precision = True
+    mixed_precision = False
 
     # Early Stopping
     early_stopping_patience = 3
