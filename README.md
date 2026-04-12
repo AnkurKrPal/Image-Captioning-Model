@@ -99,13 +99,6 @@ Evaluated on **250 images from COCO 2017 val set** using `best_model.pt` (epoch 
 | **ROUGE-L** | 0.5146 (51.46%) |
 | **CIDEr** | 1.9546 |
 
-### Sample Predictions
-
-| Image | Generated Caption | Reference Caption |
-|---|---|---|
-| Dog jumping over water | *a dog is jumping into the water* | A dog leaps over a body of water |
-| Kid kicking football | *a young boy kicking a soccer ball on a field* | A kid playing soccer on a grass field |
-
 ---
 
 ## ⚙️ Configuration (`config.py`)
@@ -132,12 +125,27 @@ Evaluated on **250 images from COCO 2017 val set** using `best_model.pt` (epoch 
 
 ```bash
 git clone https://github.com/Sajid2924/Image-Captioning-Model.git
-cd Image-Captioning-Model
 ```
 
-### 2. Install dependencies
+### 2. Create and activate virtual environment
 
 ```bash
+python3 -m venv venv
+```
+
+**For macOS and Linux:**
+```bash
+source venv/bin/activate
+```
+**For Windows(Command Prompt)**
+```bash
+venv\Scripts\activate.bat
+```
+
+### 3. Install dependencies
+
+```bash
+cd Image-Captioning-Model
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
 pip install -r requirements.txt
 python -c "import nltk; nltk.download('wordnet'); nltk.download('punkt'); nltk.download('punkt_tab'); nltk.download('omw-1.4')"
@@ -196,7 +204,6 @@ Runs BLEU-4, METEOR, ROUGE-L, and CIDEr on 250 COCO 2017 val images.
 
 - **Optimizer** — AdamW with betas `(0.9, 0.95)`
 - **Scheduler** — Cosine decay with linear warmup
-- **Mixed Precision** — `torch.cuda.amp` (FP16) for memory efficiency
 - **Gradient Clipping** — max norm = 1.0
 - **Early Stopping** — stops when val loss doesn't improve by ≥ 0.001 for 3 consecutive epochs
 - **Checkpointing** — saves `best_model.pt` + last 2 epoch checkpoints (auto-deletes older ones to save disk space)
