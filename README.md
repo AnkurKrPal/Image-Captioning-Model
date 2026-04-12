@@ -85,7 +85,6 @@ The fixed seed ensures the train/val split is **identical every run** and across
 - **Flickr8k** → [Kaggle](https://www.kaggle.com/datasets/adityajn105/flickr8k)
 - **COCO 2014** → [COCO Dataset](https://cocodataset.org/#download) (train2014 images + annotations)
 - **COCO 2017** → [COCO Dataset](https://cocodataset.org/#download) (val2017 images + annotations)
-
 ---
 
 ## 📊 Evaluation Results
@@ -146,26 +145,14 @@ venv\Scripts\activate.bat
 
 ```bash
 cd Image-Captioning-Model
-pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+pip install torch torchvision
 pip install -r requirements.txt
 python -c "import nltk; nltk.download('wordnet'); nltk.download('punkt'); nltk.download('punkt_tab'); nltk.download('omw-1.4')"
 ```
 
-### 3. Set up dataset
+### 4. Set up dataset
 
 Download datasets and place them in `data/` as shown in the project structure above.
-
-Verify all sources load correctly:
-```bash
-python check_dataset.py
-```
-
-### 4. Quick CPU test (no GPU needed)
-
-Trains on 50 images for 3 epochs — verifies the full pipeline works:
-```bash
-python sample_test.py
-```
 
 ### 5. Full training
 
